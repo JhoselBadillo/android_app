@@ -5,11 +5,9 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.myapplication.network.model.ApiResponse
 import com.example.myapplication.network.model.Character
-import com.google.gson.Gson
 
 class ApiService(private val context: Context){
     private val baseUrl = "https://rickandmortyapi.com/api/character"
