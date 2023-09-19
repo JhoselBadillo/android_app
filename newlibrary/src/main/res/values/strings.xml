@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="item_config">Config</string>
+    <string name="item_menu">Menx</string>
+    <string name="item_info">Inf</string>
+
+</resources>
