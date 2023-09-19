@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.network.model.Character
+import com.example.myapplication.ui.models.UICharacter
 import com.squareup.picasso.Picasso
 
-class CharacterAdapter(private var characterList: List< Character>) :
+class CharacterAdapter(private var characterList: List<UICharacter>) :
         RecyclerView.Adapter<CharacterAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +23,7 @@ class CharacterAdapter(private var characterList: List< Character>) :
         holder.nameTextView.text = character.name
 
         Picasso.get()
-            .load(character.image)
+            .load(character.imageUrl)
             .into(holder.imageView)
     }
 
@@ -36,7 +36,7 @@ class CharacterAdapter(private var characterList: List< Character>) :
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
     }
 
-    fun updateCharacterList(newList: List<Character>){
+    fun updateCharacterList(newList: List<UICharacter>){
         characterList = newList
         notifyDataSetChanged()
     }

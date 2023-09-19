@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.network.ApiService
 import com.example.myapplication.ui.adapters.CharacterAdapter
+import com.example.myapplication.ui.helpers.Helpers
 
 /**
  * A simple [Fragment] subclass.
@@ -42,12 +43,16 @@ class Home : Fragment() {
 
     private fun getData(){
         val apiService = ApiService(requireContext())
+        val helpers = Helpers()
 
         apiService.getCharacters{ apiResponse, error ->
             if(error != null){
 
             }else if(apiResponse != null){
-                apiResponse.results?.let { characterAdapter.updateCharacterList(it) }
+                apiResponse.results?.let {
+                    val uiCharacterList = helpers.mapApiResponseToUi(apiResponse)
+                    characterAdapter.updateCharacterList(uiCharacterList)
+                }
             }
         }
     }
