@@ -7,10 +7,11 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.newlibrary.network.model.ApiResponse
 import com.example.newlibrary.network.model.Character
-class ApiService(private val context: Context){
+
+class ApiService(private val context: Context) {
     private val baseUrl = "https://rickandmortyapi.com/api/character"
 
-    fun getCharacters(onResponse: (ApiResponse?, String?) -> Unit){
+    fun getCharacters(onResponse: (ApiResponse?, String?) -> Unit) {
         val requestQueue = Volley.newRequestQueue(context)
 
         val jsonObjectRequest = JsonObjectRequest(
@@ -19,7 +20,7 @@ class ApiService(private val context: Context){
                 val characters = mutableListOf<Character>()
 
                 val resultsArray = response.getJSONArray("results")
-                for (i in 0 until resultsArray.length()){
+                for (i in 0 until resultsArray.length()) {
                     val characterJson = resultsArray.getJSONObject(i)
                     val character = Character(
                         characterJson.getInt("id"),

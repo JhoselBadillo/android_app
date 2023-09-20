@@ -40,14 +40,14 @@ class Home : Fragment() {
         return view
     }
 
-    private fun getData(){
+    private fun getData() {
         val apiService = com.example.newlibrary.network.ApiService(requireContext())
         val helpers = Helpers()
 
-        apiService.getCharacters{apiResponse, error ->
-            if(error != null){
+        apiService.getCharacters { apiResponse, error ->
+            if (error != null) {
 
-            }else if(apiResponse != null){
+            } else if (apiResponse != null) {
                 apiResponse.results?.let {
                     val uiCharacterList = helpers.mapApiResponseToUi(apiResponse)
                     characterAdapter.updateCharacterList(uiCharacterList)

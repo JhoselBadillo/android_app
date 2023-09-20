@@ -12,9 +12,8 @@ import com.example.newlibrary.R
 import com.squareup.picasso.Picasso
 
 
-
 class CharacterAdapter(private var characterList: List<com.example.newlibrary.ui.models.UICharacter>) :
-        RecyclerView.Adapter<CharacterAdapter.ViewHolder>(){
+    RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -31,7 +30,8 @@ class CharacterAdapter(private var characterList: List<com.example.newlibrary.ui
             .into(holder.imageView)
 
         holder.imageView.setOnClickListener {
-            val fragmentManager = (holder.itemView.context as AppCompatActivity).supportFragmentManager
+            val fragmentManager =
+                (holder.itemView.context as AppCompatActivity).supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
 
 
@@ -48,13 +48,13 @@ class CharacterAdapter(private var characterList: List<com.example.newlibrary.ui
         return characterList.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.tvCharacter)
         val imageView: ImageView = itemView.findViewById(R.id.ivCharacter)
     }
 
-    fun updateCharacterList(newList: List<com.example.newlibrary.ui.models.UICharacter>){
+    fun updateCharacterList(newList: List<com.example.newlibrary.ui.models.UICharacter>) {
         characterList = newList
         notifyDataSetChanged()
     }
-        }
+}

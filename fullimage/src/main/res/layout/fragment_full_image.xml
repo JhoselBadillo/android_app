@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flFullImage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".FullImage">
+
+    <ImageView
+        android:id="@+id/ivFullImage"
+        android:layout_width="520dp"
+        android:layout_height="520dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop" />
+
+</FrameLayout>

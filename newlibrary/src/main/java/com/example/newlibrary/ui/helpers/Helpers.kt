@@ -11,6 +11,6 @@ class Helpers {
                 name = character.name.orEmpty(),
                 imageUrl = character.image.orEmpty()
             )
-        }?: emptyList()
+        } ?: emptyList()
     }
 }
