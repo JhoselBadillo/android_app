@@ -1,22 +1,17 @@
-
-
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.characterdetails"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
         minSdk = 29
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -29,6 +24,7 @@ android {
         }
     }
 
+
     buildFeatures{
         viewBinding = true
     }
@@ -40,8 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-
 }
 
 dependencies {
@@ -50,9 +44,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    implementation(project(":newlibrary"))
-    implementation(project(":characterdetails"))
-
+    implementation(libs.picasso)
 
 
     testImplementation("junit:junit:4.13.2")

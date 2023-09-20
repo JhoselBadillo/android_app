@@ -5,9 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.characterdetails.Details
 import com.example.newlibrary.R
 import com.squareup.picasso.Picasso
+
+
 
 class CharacterAdapter(private var characterList: List<com.example.newlibrary.ui.models.UICharacter>) :
         RecyclerView.Adapter<CharacterAdapter.ViewHolder>(){
@@ -25,6 +29,19 @@ class CharacterAdapter(private var characterList: List<com.example.newlibrary.ui
         Picasso.get()
             .load(character.imageUrl)
             .into(holder.imageView)
+
+        holder.imageView.setOnClickListener {
+            val fragmentManager = (holder.itemView.context as AppCompatActivity).supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+
+
+            val newDetailsFragment = Details.newInstance(character.name, character.imageUrl)
+            fragmentTransaction.replace(R.id.homeFragment, newDetailsFragment)
+
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+
+        }
     }
 
     override fun getItemCount(): Int {

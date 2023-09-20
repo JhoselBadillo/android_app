@@ -1,6 +1,9 @@
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.parcelize")
+
 }
 
 android {
@@ -40,13 +43,14 @@ android {
 }
 
 dependencies {
-
     implementation(libs.core)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.volley)
     implementation(libs.picasso)
+    implementation(project(":characterdetails"))
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
